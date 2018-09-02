@@ -3,7 +3,7 @@ title: "Geocomputation with R"
 author: |
    | Jannes Muenchow^1^, Robin Lovelace^2^ and Jakub Nowosad^3^
    |
-   | ^1^Friedrich Schiller University of Jena ^2^University of Leeds ^3^University of Poznan
+   | ^1^Friedrich Schiller University of Jena ^2^University of Leeds ^3^Adam Mickiewicz University in Poznan
 institute: 
    - $^1$Löbdergraben 32, 07743 Jena
 output: html_document
