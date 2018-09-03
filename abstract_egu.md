@@ -32,7 +32,7 @@ To deal with these shortcomings packages have been developed allowing R to inter
 As an example, we will introduce the **RQGIS** [@muenchow_rqgis:_2017] package for this purpose but also comment on other R-GIS bridges such as **RSAGA** [@brenning_rsaga_2018] and **rgrass7** [@bivand_rgrass7_2017].
 We will use **RQGIS** to compute terrain attributes (catchment area, catchment slope, SAGA wetness index, etc.) which we will subsequently use to model and predict spatially landslide susceptibility with the help of statistical learning techniques (**fourth topic**). 
 Hence, we show by example how to combine the best of two worlds: the geoprocessing power of a GIS and the (geo-)statistical data science power of R.
-The short course will consist of a mixture of presentations, live code demos and short interactive excercises if time allows.
+The short course will consist of a mixture of presentations, live code demos and short interactive exercises if time allows.
 
 ## Learning objectives
 By the end of this workshop, the participants should:
