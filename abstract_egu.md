@@ -35,19 +35,20 @@ Hence, we show by example how to combine the best of two worlds: the geoprocessi
 The short course will consist of a mixture of presentations, live code demos and short interactive exercises if time allows.
 
 ## Learning objectives
+
 By the end of this workshop, the participants should:
 
-* know how to handle the two spatial data models (vector and raster) in R.
-* import/export different geographic data formats.
-* know the importance of coordinate reference systems.
-* be able to visualize geographic data in a compelling fashion.
-* know about geospatial software interfaces and how they are integrated with R (GEOS, GDAL, QGIS, GRASS, SAGA).
-* know about the specific challenges when modeling geographic data.
+* Know how to handle the two spatial data models (vector and raster) in R.
+* Import/export different geographic data formats.
+* Know the importance of coordinate reference systems.
+* Be able to visualize geographic data in a compelling fashion.
+* Know about geospatial software interfaces and how they are integrated with R (GEOS, GDAL, QGIS, GRASS, SAGA).
+* Know about the specific challenges when modeling geographic data.
 
 ## Software requirements
 
-* latest R version and RStudio
-* R packages mlr, sf, raster, RQGIS, RSAGA, spData, tidyverse, tmap
+* Latest version of [R](https://cloud.r-project.org/) and [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+* R packages: sf, raster, RQGIS, RSAGA, spData, tmap, tidyverse, mlr
 * QGIS (including SAGA and GRASS), please follow our [installation guide](https://cran.r-project.org/web/packages/RQGIS/vignettes/install_guide.html#arch-linux) to make sure that **RQGIS** can work with QGIS  
 
 ## References
