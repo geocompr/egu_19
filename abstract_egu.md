@@ -11,7 +11,7 @@ bibliography: references.bib
 ---
 
 R is probably the most important statistical computing language in academia.
-With almost 2000 packages it has been extended in many directions, including support for geospatial data [see https://cran.r-project.org/web/views/Spatial.html and @bivand_applied_2013].
+With more than 10,000 packages it has been extended in many directions, including a huge support for geospatial data [see https://cran.r-project.org/web/views/Spatial.html and @bivand_applied_2013].
 R's flexibility and statistical capabilities have made it attractive for people working in Earth, planetary and space sciences and a need for geographic data science.
 
 This course will introduce the audience to R's geographical capabilities, building on the book [Geocomputation with R](https://geocompr.robinlovelace.net/) by the workshop authors [@lovelace_geocomputation_2018]. 
