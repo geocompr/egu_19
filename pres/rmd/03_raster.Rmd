@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Geocomputation with R"
-subtitle: "⚔<br>Geographic raster data in R"
+subtitle: "⚔<br/>Geographic raster data in R"
 author: "Jannes Muenchow, Robin Lovelace"
-date: "ERUM Budapest, 2018-05-14"
+date: "EGU Vienna, 2019-04-10"
 output:
   xaringan::moon_reader:
     css: "my-theme.css"
@@ -15,17 +15,32 @@ output:
       countIncrementalSlides: false
 ---
 
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = ReadBib("references.bib", check = FALSE)
+```
+
 layout: true
 background-image: url(img/r_geocomp_background.png)
 background-size: cover
----
 
-# Find the slides and the code 
+
+---
+# Find the slides and code
 <br>
 <br>
 <br>
 <br>
-https://github.com/jannes-m/erum18_geocompr
+https://github.com/geocompr/egu_19
 
 <br>
 <br>
@@ -34,11 +49,82 @@ Please install following packages:
 install.packages(c("sf", "raster", "spData", "dplyr", "RQGIS"))
 ```
 
-Or from [docker](https://github.com/Robinlovelace/geocompr#running-the-book-in-docker):
+Or from [docker](https://github.com/Robinlovelace/geocompr#running-geocompr-code-in-docker).
 
+---
+
+# Raster data model
+```{r, echo=FALSE, message=FALSE, eval=FALSE}
+library(raster)
+library(grid)
+library(gridExtra)
+library(lattice)
+library(latticeExtra)
+
+
+small_ras = raster(matrix(1:16, 4, 4, byrow = TRUE))
+small_ras_val = raster(matrix(sample.int(100, 16), 4, 4, byrow = TRUE))
+small_ras_val[c(7, 9)] = NA
+
+polys = rasterToPolygons(small_ras, na.rm = FALSE)
+# cell IDs
+p_1 = spplot(small_ras, colorkey = FALSE, col.regions = "white",
+             main = "A. Cell IDs",
+             sp.layout = list(
+               list("sp.polygons", polys, first = FALSE),
+               list("sp.text", xyFromCell(small_ras_val, 1:ncell(small_ras)),
+                    1:ncell(small_ras))
+             )
+)
+# cell values
+p_2 = spplot(small_ras_val, colorkey = FALSE, col.regions = "white",
+             main = "",
+             sp.layout = list(
+               list("sp.polygons", polys, first = FALSE),
+               list("sp.text", xyFromCell(small_ras_val,
+                                          1:ncell(small_ras_val)),
+                    values(small_ras_val))
+             )
+)
+# colored raster
+p_3 = spplot(small_ras_val, 
+             col.regions = 
+               colorRampPalette(c("#a50026", "#ffffbf", "#006837"))(16),
+             colorkey = FALSE)
+png("pres/img/raster.png")
+grid.draw(grobTree(rectGrob(gp = gpar(lwd = 0))))
+grid.draw(arrangeGrob(p_2, p_3, ncol = 1, clip = TRUE))
+dev.off()
 ```
-docker run -d -p 8787:8787 -v ${pwd}:/data robinlovelace/geocompr
-```
+
+<figure>
+<img align="right" src="img/raster.png" width = "50%", height = "50%"/>
+</figure>
+
+- Continous fields represented by pixels (cells)
+--
+
+- One attribute value for one cell
+--
+
+- Especially suitable for continous data without sharp borders (elevation, precipitation)
+--
+
+- Structure: raster header (origin, resolution, ncol, nrow, crs, NAvalue) and matrix containing the data
+--
+
+- Map algebra
+--
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Further reading: [https://geocompr.robinlovelace.net/spatial-class.html#raster-data](https://geocompr.robinlovelace.net/spatial-class.html#raster-data)
+
 
 ---
 # Raster data in R
