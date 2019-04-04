@@ -277,7 +277,7 @@ tm_shape(nz) + tm_fill() + tm_borders()
 
 # Animations
 
-- Are easy with **tmap** (section [9.3](http://geocompr.robinlovelace.net/adv-map.html#animated-maps) of geocompr)
+- Are easy with **tmap** (section [8.3](http://geocompr.robinlovelace.net/adv-map.html#animated-maps) of geocompr)
 
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif")
