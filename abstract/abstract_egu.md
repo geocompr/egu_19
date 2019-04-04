@@ -7,7 +7,7 @@ author: |
 institute: 
    - $^1$Löbdergraben 32, 07743 Jena
 output: html_document
-bibliography: references.bib
+bibliography: ../references.bib
 ---
 
 R is probably the most important statistical computing language in academia.
