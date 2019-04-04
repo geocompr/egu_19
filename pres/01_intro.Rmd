@@ -69,7 +69,7 @@ Find [here](https://geocompr.robinlovelace.net/) the online home of our book.
 - [Robin Lovelace](https://www.robinlovelace.net/) - Geographer and Environmental Scientist focussing on sustainable transport planning; creator of **stplanr**.
 --
 
-- [Jakub Nowosad](https://nowosad.github.io/) - Geographer with a focus on the analysis of large datasets to understand environmental processes; creator of the **sabre** package.
+- [Jakub Nowosad](https://nowosad.github.io/) - Computational geographer with a focus on the analysis of large datasets to understand environmental processes; creator of the **sabre** package.
 --
 
 - [Jannes Muenchow](http://www.geographie.uni-jena.de/en/Muenchow.html) - GIScientist with a special focus on ecology, landsliding and geomarketing; creator of the **RQGIS(3)** package.
