@@ -92,7 +92,7 @@ Simple feature access is a widely used [ISO standard](http://www.opengeospatial.
 library(sf)
 ```
 
-**sf** automatically links to [GEOS](https://trac.osgeo.org/geos/), [GDAL](http://www.gdal.org/) and [Proj.4](https://proj4.org/).
+**sf** automatically links to [GEOS](https://trac.osgeo.org/geos/), [GDAL](http://www.gdal.org/) and [PROJ](https://proj4.org/).
 
 --
 ```{r}
@@ -547,7 +547,7 @@ regions %>%
 ---
 
 # CRS in sf
-**sf** lets you use CRS and change CRS (reproject) through [Proj.4]((https://proj4.org/).
+**sf** lets you use CRS and change CRS (reproject) through [PROJ]((https://proj4.org/).
 --
 
 ```{r}
