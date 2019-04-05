@@ -91,6 +91,36 @@ leaflet() %>%
 ```
 
 ---
+# Summer school 2019 in Jena
+
+If you want more than a 1.5h tutorial, apply for our summer school!
+
+https://jupiter.geogr.uni-jena.de/summerschool/about/
+
+
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
+knitr::include_graphics("img/spat_logos.png")
+```
+
+--
+
+**Summer school**: 25 August to 1 September 2019
+<br>
+Application **deadline**: 15 May 2019
+<br>
+**Fees**: 100€
+
+Funded by the German Academic Exchange Service ([**DAAD**](https://www.daad.de/en/)), therefore accepted **international (PhD or Msc) students** will receive upon completion of the summer school:
+
+- a flat-rate allowance of **250** Euros
+- a country-dependent **travel stipend** amounting to at least 200 Euros 
+
+???
+Applicants from Germany and senior researchers (PostDocs, Professors) are welcome to apply but only a limited number can be admitted and no funding can be granted.
+
+**This means, that each accepted international participant (student or PhD student) will receive at least 450 Euros upon succeful completion of the summer school!!!**
+
+---
 # Contents of the tutorial
 
 ```{r, eval=FALSE, echo=FALSE}
