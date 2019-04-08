@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Making maps with R"
-subtitle: "`r emojifont::emoji('world_map')` <br/>from base (rock) to shiny (clouds)"
-author: "Jannes Muenchow, Robin Lovelace"
-date: "eRum Budapest, 2018-05-14"
+subtitle: "`r emojifont::emoji('world_map')` <br/>from static maps towards web applications"
+author: "Robin Lovelace, Jannes Muenchow"
+date: "EGU Vienna, 2019-04-10"
 output:
   xaringan::moon_reader:
     css: "my-theme.css"
@@ -96,78 +96,6 @@ a package for making interactive maps that has been extended by the R community,
 
 ---
 
-# R's 'base' graphics: sp
-
-```{r, echo=FALSE, eval=FALSE}
-# from asdar:
-library(sp)
-data(meuse)
-coordinates(meuse) = c("x", "y")
-#layout(matrix(1:4, 2, 2, byrow = TRUE))
-layout(matrix(1:4, 1, 4, byrow = TRUE))
-par(mar = c(0,0,1,0))
-plot(meuse, cex = 0.6)
-title("points")
-
-cc = coordinates(meuse)
-m.sl = SpatialLines(list(Lines(list(Line(cc)), "mess")))
-plot(m.sl)
-title("lines")
-
-data(meuse.riv)
-meuse.lst = list(Polygons(list(Polygon(meuse.riv)), "meuse.riv"))
-meuse.pol = SpatialPolygons(meuse.lst)
-plot(meuse.pol, col = "grey")
-title("polygons")
-
-data(meuse.grid)
-coordinates(meuse.grid) = c("x", "y")
-meuse.grid <- as(meuse.grid, "SpatialPixels")
-image(meuse.grid, col = "grey")
-title("grid")
-```
-
-```{r, echo=FALSE, message=FALSE}
-library(sp)
-library(sf)
-library(spData)
-layout(matrix(1:3, 1, 3, byrow = TRUE))
-nz_sp = as(nz, "Spatial")
-nz_height_sp = as(nz_height, "Spatial")
-plot(nz_height_sp, cex = 2)
-title("points")
-plot(nz_sp, col = "grey")
-plot(nz_sp)
-plot(nz_height_sp, add = TRUE, col = "red")
-```
-
----
-
-# Base R graphics: sp code
-
-Credit: [asdar-book.org/](http://asdar-book.org/), reproducible code accompanying the book Applied Spatial Data Analysis with R (Pebesma et al. 2013).
-
-```{r, eval=FALSE}
-library(sp)
-library(spData)
-nz_sp = as(nz, "Spatial")
-plot(nz_height_sp, cex = 2)
-title("points")
-plot(nz_sp, col = "grey")
-plot(nz_height, add = TRUE, col = "red")
-```
-
---
-
-## Observations
-
-- Passes arguments (e.g `cex` for symbol size) to `graphics::plot()`
-- New command for each additional 'layer' (e.g. `title()`, `plot(..., add = TRUE)`)
-- Black and white default output style
-- Fast
-
----
-
 # Base R graphics: sf 
 
 ```{r}
@@ -178,9 +106,9 @@ plot(nz)
 
 # Base R graphics: sf II
 
-```{r, fig.cap=" ", fig.show='hold', out.width="40%"}
+```{r, fig.cap=" ", fig.show='hold', out.width="40%", warning=FALSE}
 plot(st_geometry(nz))
-plot(nz_height, add = TRUE)
+plot(nz_height, add = TRUE, cex = nz_height$elevation / 1000)
 sf_cols = sf.colors(n = 2, alpha = 0.2)
 nz$col = factor(x = nz$Island, labels = sf_cols)
 plot(st_geometry(nz), col = as.character(nz$col))
@@ -197,7 +125,7 @@ plot(nz)
 plot(st_geometry(nz), reset = FALSE)
 # addition of new layers
 plot(nz_height, add = TRUE)
-# transparency
+# create colourscheme, add transparency
 sf_cols = sf.colors(n = 2, alpha = 0.2)
 nz$col = factor(x = nz$Island, labels = sf_cols)
 plot(st_geometry(nz), col = as.character(nz$col))
@@ -209,15 +137,16 @@ plot(st_geometry(nz), col = as.character(nz$col))
 ## Observations
 
 - Facets by default: useful for seeing patterns.
-- Transparency new, `add = ...` argument the sam.e
-- You can go far with base R graphics 
+- Passes arguments (e.g `cex` for symbol size) to `graphics::plot()`
+- Add new layers with `add = ...` argument
+- Quick and unrefined, but you can go far with base R graphics 
 `r Citep(my_bib, "murrell_graphics_2016", .opts = list(cite.style = "authoryear"))`.
 
 ---
 
 # tmap
 
-- A diverse dedicated mapping R package
+- A powerful, dedicated mapping package
 
 ```{r}
 library(tmap)
@@ -309,11 +238,12 @@ knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/
 
 # Exercises
 
-1. Create a map showing the geographic distribution of the Human Development Index (`HDI`) across Africa with 
--base graphics (hint: use `plot()`) and
--**tmap** (hint: use `tm_shape(africa) + ...`).
-    - Name two advantages of each approach
-    - Bonus: What three other mapping packages could be used to show the same data?
+Create a map showing the geographic distribution of the Human Development Index (`HDI`) across Africa with:
+
+1. base graphics (hint: use `plot()`) and
+2. **tmap** (hint: use `tm_shape(africa) + ...`).
+3. Name two advantages of each approach
+4. Bonus: name 2 other packages could be used to show the same data?
     
 --
 

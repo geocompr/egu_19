@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+pres/*.html
+*_files*
+pres/libs/
