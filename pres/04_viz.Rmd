@@ -39,35 +39,35 @@ background-size: cover
 
 ---
 
-# A brief history of geographic vizualisation I
+# Brief history of geographic vizualisation
 
 - Neo Babylonian (626 BC - 539 BC) temple plan
 Source:
 `r Citep(my_bib, "talbert_ancient_2014", .opts = list(cite.style = "authoryear"))`
 
-```{r, echo=FALSE, out.width="50%"}
+```{r, echo=FALSE, out.width="50%", fig.align = "center"}
 knitr::include_graphics("img/neo-babylon-temple-map-circa-600-bc.png")
 ```
 
 ---
 
-# A brief history of geographic vizualisation II
+# Brief history of geographic vizualisation
 
 - Neo Babylonian (626 BC - 539 BC) map of the world
 Source:
 `r Citep(my_bib, "talbert_ancient_2014", .opts = list(cite.style = "authoryear"))`
 
-```{r, echo=FALSE, out.width="50%"}
+```{r, echo=FALSE, out.width="50%", fig.align="center"}
 knitr::include_graphics("img/babylon-map.png")
 ```
 
 ---
 
-# A brief history of geographic vizualisation III
+# Brief history of geographic vizualisation
 
 - Humboldt's Naturgemälde (1807, *Geography of Plants*)
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="80%", fig.align="center"}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg/2560px-Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg")
 ```
 
@@ -98,11 +98,21 @@ a package for making interactive maps that has been extended by the R community,
 
 # Base R graphics: sf 
 
-```{r}
+.pull-left[
+```{r, message=FALSE, eval=FALSE}
 library(spData)
 library(sf)
-plot(nz)
+plot(nz[, 1:2])
 ```
+]
+
+.pull-right[
+```{r, message=FALSE, echo=FALSE}
+library(spData)
+library(sf)
+plot(nz[, 1:2])
+```
+]
 
 ---
 
@@ -134,7 +144,7 @@ plot(st_geometry(nz), col = as.character(nz$col))
 #  see ?plot.sf for more
 ```
 
---
+---
 
 ## Observations
 
@@ -148,13 +158,29 @@ plot(st_geometry(nz), col = as.character(nz$col))
 
 # tmap
 
-- A powerful, dedicated mapping package
+.pull-left[
 
-```{r}
+- A powerful, dedicated mapping package
+.smaller-code-font75[
+```{r, eval=FALSE}
 library(tmap)
 tm_shape(nz) +
-  tm_polygons("Median_income", palette = "RdYlBu")
+  tm_polygons("Median_income", 
+              palette = "RdYlBu")
 ```
+]
+]
+
+
+.pull-right[
+```{r, echo=FALSE}
+library(tmap)
+tm_shape(nz) +
+  tm_polygons("Median_income",
+              palette = "RdYlBu")
+```
+]
+
 
 ---
 
@@ -168,16 +194,11 @@ tm_shape(nz) +
 `r Citep(my_bib, "tennekes_tmap_2018", .opts = list(cite.style = "authoryear"))`.
 
 
---
-
-- It's also at eRum!
-- At 13:30 in room N15 203: "Plotting spatial data in R".
-
 ---
 
 # tmap basics
 
-```{r, fig.cap="tmap basics", out.width="32%", fig.show='hold'}
+```{r, out.width="32%", fig.show='hold'}
 # Add fill layer to nz shape
 tm_shape(nz) + tm_fill() 
 # Add border layer to nz shape
@@ -218,7 +239,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/1825120/38543
 
 # Interactive maps with mapview
 
-```{r}
+```{r, out.width="60%", out.height="60%", fig.align="center"}
 m = mapview::mapview(nz)
 m@map
 ```
@@ -232,7 +253,7 @@ m@map
 `r Citep(my_bib, "lovelace_propensity_2017", .opts = list(cite.style = "authoryear"))`.
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/pct-frontpage.png")
 ```
 
