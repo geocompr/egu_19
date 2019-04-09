@@ -362,7 +362,7 @@ Spatial operations make use of spatial relationship between objects (features). 
 library(spData)
 plot(st_geometry(nz))
 plot(st_geometry(nz_height),
-     pch = 16, col = "red2"
+     pch = 16, col = "red"
      cex = 2, add = TRUE)
 
 ```
@@ -417,7 +417,7 @@ plot(st_geometry(sel), cex = 2, pch = 16, col = "red", add = TRUE)
 ---
 
 # Topological relations
-Implicitly our subsetting used `st_intersects`, i.e. it returned all featured that touched or overlapped.
+Implicitly our subsetting used `st_intersects`, i.e. it returned all featured that touched or overlapped the `canterbury` polygon.
 
 ```{r, eval=FALSE}
 nz_height[canterbury, op = st_intersects]
@@ -590,8 +590,8 @@ Package sf has crs objects that register coordinate reference systems:
 pts = st_sfc(st_point(c(0, 1)), st_point(c(1, 1))) # create 2 points
 # use the buffer function to create circles from points
 circles = st_buffer(pts, dist = 1) 
-x = circles[1, ]
-y = circles[2, ]
+x = circles[1]
+y = circles[2]
 ```
 - Compute the average population (`total_pop_15`) for each `REGION` of `us_states`. Plot your result.
 - Find out about the CRS of `nz`, reproject it into a geographic CRS (EPSG: 4326) and plot the original `nz` object next to your transformed `nz` object.
