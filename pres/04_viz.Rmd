@@ -99,6 +99,8 @@ a package for making interactive maps that has been extended by the R community,
 # Base R graphics: sf 
 
 ```{r}
+library(spData)
+library(sf)
 plot(nz)
 ```
 
