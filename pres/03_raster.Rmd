@@ -241,7 +241,7 @@ elev[clip]
 --
 .pull-right[
 ```{r, echo=FALSE}
-plot(elev[clip, drop = FALSE], legend = FALSE)
+plot(elev, legend = FALSE)
 plot(rasterToPolygons(clip), add = TRUE)
 ```
 ]
@@ -345,7 +345,7 @@ Further reading: [https://geocompr.robinlovelace.net/spatial-operations.html#spa
 # Your turn
 
 - Attach `data("dem", package = "RQGIS")`. Retrieve the altitudinal values of the 10th row.
-- Sample randomly 10 coordinates of `dem` with the help of the `coordinates()`-command, and extract the corresponding altitudinal values.
+- Sample randomly 10 coordinates of `dem` with the help of the `sp::coordinates()`-command, and extract the corresponding altitudinal values.
 - Attach `data("random_points", package = "RQGIS")` and find the corresponding altitudinal values. Plot altitude against `spri`. 
 - Compute the hillshade of `dem` (hint: `?hillShade`). Overlay the hillshade with `dem` while using an appropriate level of transparency.
 ---
@@ -410,13 +410,17 @@ plot(elev_agg)
 - EPSG codes are not accepted, use a proj4string instead.
 --
 
-```{r, eval=FALSE}
+```{r}
 library(spDataLarge)
 proj4string(nz_elev)
-projectRaster(nz_elev, crs = st_crs(4326)$proj4string)
 ```
 --
 
+```{r}
+projectRaster(nz_elev, crs = st_crs(4326)$proj4string)
+```
+
+--
 Further reading on geometric raster operations: [https://geocompr.robinlovelace.net/geometric-operations.html#geo-ras](https://geocompr.robinlovelace.net/geometric-operations.html#geo-ras)
 ---
 
