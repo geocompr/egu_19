@@ -33,7 +33,7 @@ data("random_points", package = "RQGIS")
 sel = filter(random_points, spri > 10) %>%
   st_geometry
 plot(st_geometry(random_points))
-plot(st_geometry(sel), pch = 16, col = "salmon", add = TRUE)
+plot(sel, pch = 16, col = "salmon", add = TRUE)
   
 # Based on `spri` add a categorical column to `random_points`  with 0-5
 # corresponding to `low`, 6-10 to `medium` and >=11 to `high`.
@@ -80,10 +80,10 @@ join = st_join(nz, select(nz_height, elevation))
 # inner join -> only give back rows with a match
 st_join(nz, select(nz_height, elevation), left = FALSE)
 
-
 #**********************************************************
 # 4 GEOMETRIC OPERATIONS-----------------------------------
 #**********************************************************
+
 
 # Create two overlapping circles (see below) and compute and plot their
 # geometric intersection. Secondly union the circles.

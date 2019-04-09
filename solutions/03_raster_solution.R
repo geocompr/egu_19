@@ -34,7 +34,7 @@ dem[10, ]
 
 # Sample randomly 10 coordinates of `dem` with the help of the
 # `coordinates()`-command, and extract the corresponding altitudinal values.
-coords = coordinates(dem)
+coords = sp::coordinates(dem)
 int = sample(1:nrow(coords), 10)
 coords = coords[int, ]
 extract(dem, coords)
