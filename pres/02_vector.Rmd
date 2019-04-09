@@ -105,6 +105,14 @@ This is a **`data.frame`**, i.e, an S3 object (as opposed to `SpatialObjects`).
 
 ???
 spatial databases, GIS, open source libraries, GeoJSON, GeoSPARQL, etc.
+
+---
+# Simple features in R
+
+```{r}
+head(random_points)
+```
+
 ---
 
 # Simple features in R
@@ -118,14 +126,6 @@ plot(random_points)
 
 .pull-right[
 ```{r, echo=FALSE}
-# see issue https://github.com/r-spatial/sf/issues/685
-# -> update random_points!!
-set_bb = function(x) { 
-  class(attr(x[[attr(x, "sf_column")]], "bbox")) = "bbox"
-  x 
-  }
-random_points = set_bb(random_points)
-par(mar = rep(0, 4))
 plot(random_points)
 ```
 ]
