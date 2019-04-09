@@ -55,6 +55,10 @@ p_2 = st_point(c(1, 2))
 sfc = st_sfc(list(p, p_2))
 st_sf(data.frame(id = 1:2), geometry = sfc)
 
+# also possible:
+d = data.frame(id = 1:2, x = 1:2, y = 1:2)
+st_as_sf(d, coords = c("x", "y"), crs = 4326)
+
 #**********************************************************
 # 3 SPATIAL ATTRIBUTE OPERATIONS---------------------------
 #**********************************************************
