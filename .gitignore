@@ -5,3 +5,6 @@
 pres/*.html
 *_files*
 pres/libs/
+*.pptx
+*.html
+pres/convert_html_to_pdf.R
