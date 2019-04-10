@@ -72,6 +72,24 @@ leaflet() %>%
 ```
 
 ---
+
+# About the book
+
+Take a look here: https://geocompr.robinlovelace.net/
+
+Source code: https://github.com/robinlovelace/geocompr
+
+--
+
+Win a copy of the book for:
+
+1. Best map (upload a map to https://github.com/Robinlovelace/geocompr/issues/371 )
+
+2. Best questions (ask us!)
+
+3. We'll decide at the end
+
+---
 # Summer school 2019 in Jena
 
 If you want more than a 1.5h tutorial, apply for our summer school!
