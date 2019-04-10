@@ -103,6 +103,22 @@ Applicants from Germany and senior researchers (PostDocs, Professors) are welcom
 
 ---
 
+# Workshop in Leeds, UK
+
+- 2 day workshop in the Leeds Institute for Data Analytics: [lida.leeds.ac.uk/event](https://lida.leeds.ac.uk/event/geocomputation-data-analysis-r/)
+
+- Date: 25th to 26th April - 2 weeks tomorrow!
+
+--
+
+- More events? See the #geocompr hashtag on Twitter!
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://user-images.githubusercontent.com/1825120/55670985-962c7700-5882-11e9-8bef-188854547011.png")
+```
+
+---
+
 # Contents of the tutorial
 
 ```{r, eval=FALSE, echo=FALSE}
