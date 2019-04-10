@@ -283,6 +283,23 @@ africa = world %>%
   st_transform("+proj=aea +lat_1=20 +lat_2=-23 +lat_0=0 +lon_0=25")
 ```
 
+```{r, echo=FALSE, eval=FALSE}
+plot(africa)
+library(tmap)
+tm_shape(africa) +
+  tm_polygons("subregion")
+ttm()
+tm_shape(africa) +
+  tm_polygons("HDI")
+
+tm_shape(spDataLarge::nz_elev) +
+  tm_raster() +
+  tm_view(basemaps = leaflet::providers$OpenTopoMap)
+
+library(mapde)
+```
+
+
 ---
 
 class: small
@@ -291,3 +308,54 @@ class: small
 ```{r, 'refs', results="asis", echo=FALSE}
 PrintBibliography(my_bib)
 ```
+
+```{r, echo=FALSE, eval=FALSE}
+Questions
+
+# Can you read-in data from R?
+
+# Advice: polygons to intersect raster
+
+# Why are function names in sf called st?
+
+# Can you read-in NetCDF files?
+
+# In the clip is it possible to create a high res raster
+
+#
+
+
+library(sf)
+nz
+plot(nz)
+plot(nz["Population"])
+library(tmap)
+tmap_mode("view")
+tm_shape(nz) +
+  tm_polygons("Population")
+
+elev
+tm_shape(elev) +
+  tm_raster() +
+  tm_view(basemaps = leaflet::providers$OpenTopoMap)
+
+# reprex example
+library(rgdal)
+library(tmap)
+u = "https://github.com/Robinlovelace/geocompr/files/3063017/example_egu.zip"
+download.file(u, "example_egu.zip")
+unzip("example_egu.zip")
+egu_dd <- readOGR(dsn = ".",layer = "example_egu")
+colnames(egu_dd@data) <- c("Station","Duration","Corrected Zc","new P-value","N/N*","Original Z","old P.value","Tau","Sen.s.slop", "old.variance","new.variance","Abs.Sen","lat","lon","elevation","region","a_2","n_2","a_5","n_5", "a_10","n_10","a_20","n_20","a_50","n_50","a_100","n_100","a_200","n_200","a_500","n_500", "intensity_2","intensity_5","intensity_10","intensity_20","intensity_50","intensity_100","intensity_200","intensity_500")
+
+# tmap_mode("view")
+tm_basemap(leaflet::providers$Esri.WorldImagery,alpha = 0.95)+
+tm_shape(egu_dd) +
+tm_symbols(col="Sen.s.slop",size = "Abs.Sen",scale = 2,
+palette=c("red4","brown1","navy","lightskyblue1"),perceptual = FALSE,border.col = "white",
+popup.vars = c("elevation", "Sen.s.slop", "new P-value"))+
+tm_layout(title = "Trend on precipitation historical data")+
+tm_legend(legend.only=FALSE,legend.show= FALSE,legend.outside=TRUE)+
+tm_view(view.legend.position = c("right","bottom"))
+```
+
